@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="dolares">Dolares:</label>
+    <input type="number" id="dolares" placeholder="ej: 5 * min = "0">
+    <label for = "tipo de cambio">Tipo de cambio:</label>
+    <input type="number" id="tipo de cambio" placeholder="ej: 5 * min = "0">
+    <button onclick="calcularDolares()">Calcular pesos</button>
+    <div id="resultado" class=" hidden">
+    <h2>Resultado:</h2>
+    <p> El peso de la moneda es: <span id="peso"></span></p>
+</div>
+<script>
+    function calcularDolares(){
+        const dolares=document.getElementById("dolares").value;
+        const tipo=document.getElementById("tipo de cambio").value;
+        const peso=dolares*tipo;
+        document.getElementById("peso").innerText=peso.toFixed(2);
+        document.getElementById("resultado").classList.remove("hidden");
+    }
+    
+    
+</script>
+</body>
+</html>
