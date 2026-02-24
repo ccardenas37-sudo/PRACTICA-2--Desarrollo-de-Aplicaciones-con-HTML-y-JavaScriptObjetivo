@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA</title>
+</head>
+<body>
+    <h1>Calculadora para operaciones</h1> <!-- Aquí pongo el título -->
+    <button onclick="mostrarTriangulo()">Área de Triángulo</button> <!-- Aquí pongo los botones -->
+    <button onclick="mostrarEsfera()">Volumen de una Esfera</button>
+    <button onclick="mostrarConversion()">Conversión de pesos a dolares</button>
+    <button onclick="Limpiar()">Limpiar</button><br><br>
+    <div id="contenido"></div>
+    <script>
+        function AreadelTriangulo() { // funcion para el area de triangulo
+         const base = Number(document.getElementById("base").value); // leo el valor ingresado
+         const altura = Number(document.getElementById("altura").value); 
+         
+         if (base <= 0 || altura <= 0) { // si el valor ingresado es menor o igual a cero
+         alert("No puedes dejar espacios en blanco ni usar ceros o valrores negativos, FIJATE"); 
+         } else {
+         const area= (base*altura)/2;     // calculo de la area
+         document.getElementById("resultado")   // pongo el resultado en la div con id resultado
+         resultado.style.color = "green";   // pongo color verde
+         resultado.innerText  = "Área: " + area;
+            }
+        }
+
+     function VolumendelaEsfera() { // funcion para el volumen de una esfera
+                const radio= parseFloat(document.getElementById("radio").value); // leo el valor ingresado
+                const volumen = (4/3)* Math.PI * Math.pow(radio,3);     // calculo de el volumen
+                 if (radio <= 0) {
+             alert("No puedes dejar espacios en blanco ni usar ceros o valrores negativos, FIJATE");
+             } else {
+
+                document.getElementById("resultado").innerText      // pongo el resultado en la div con id resultado
+                resultado.style.color = "blue";     // pongo color azul
+                resultado.innerText="Volumen: " + volumen.toFixed(2);   // pongo el resultado en la div con id resultado
+      }
+    }
+        function Conversion() { // funcion para la conversion de pesos a dolares
+        const pesos = Number(document.getElementById("pesos").value); // leo el valor ingresado
+        const tipo = Number(document.getElementById("tipo").value); 
+        if (pesos <= 0 || tipo <= 0) { // si el valor ingresado es menor o igual a cero
+        alert("No puedes dejar espacios en blanco ni usar ceros o valrores negativos, FIJATE");
+       } else {
+        const dolares = pesos / tipo;     // calculo de la conversion
+        document.getElementById("resultado").innerText
+        resultado.style.color = "red";
+        resultado.innerText ="Dolares: " + dolares.toFixed(2);
+
+        }
+    }
+        function Limpiar() { // funcion para limpiar el contenido
+            document.getElementById("contenido").innerHTML = ""; // limpio el contenido
+        }
+    
+  function mostrarTriangulo() { // funcion para mostrar el area de triangulo
+      document.getElementById("contenido").innerHTML =  // pongo el contenido en la div con id contenido
+    "Base:<br>" +  // pongo el contenido en la div con id contenido
+      "<input type='number' id='base'><br><br>" +  // pongo el contenido en la div con id contenido
+      "Altura:<br>" +
+      "<input type='number' id='altura'><br><br>" +
+      "<button onclick='AreadelTriangulo()'>Calcular Área</button><br><br>" +
+      "<div id='resultado'></div>";
+        }
+        function mostrarEsfera() { // funcion para mostrar el volumen de una esfera
+            document.getElementById("contenido").innerHTML =  // pongo el contenido en la div con id contenido
+            "Radio: <br>" +
+            "<input type='number' id='radio'><br><br>" +
+            "<button onclick='VolumendelaEsfera()'>Calcular Volumen</button><br><br>" +
+            "<div id='resultado'></div>";
+            }
+            function mostrarConversion() {  // funcion para mostrar la conversion de pesos a dolares
+                document.getElementById("contenido").innerHTML =  // pongo el contenido en la div con id contenido
+                "Pesos: <input type='number' id='pesos'><br><br>" +
+                "Tipo de Cambio: " +
+                "<input type='number' id='tipo'><br><br>" +
+                "<button onclick='Conversion()'>Conversión de pesos a dolares</button><br><br>" +
+                "<div id='resultado'></div>";
+                }      
+                
+    </script>
+</body>
+</html>
